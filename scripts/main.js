@@ -1,14 +1,15 @@
 let canvas = document.getElementById("myCanvas")
 let ctx = canvas.getContext("2d")
 
-function draw() {
-    // Drawing code 
 ctx.beginPath();
-ctx.arc(50, 50, 10, 0, Math.PI*2);
-ctx.fillStyle = "#0095DD";
+ctx.arc(240, 160, 20, 0, Math.PI*2, false)
+ctx.fillStyle = "green";
 ctx.fill();
 ctx.closePath();
 
-}
-setInterval(draw, 10);
+ctx.beginPath();
+ctx.rect(160, 10, 100, 40);
+ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
+ctx.stroke();
+ctx.closePath();
 //making it move pg11
