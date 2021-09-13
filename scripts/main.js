@@ -29,6 +29,12 @@ function draw() {
     x += dx;
     y += dy;
 
+    if (x > canvas.width || x < 0) {
+        dx = -dx;
+    }
+    if (y > canvas.height || y < 0) {
+        dy = -dy;
+    }
 }
 
 
