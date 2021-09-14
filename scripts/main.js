@@ -70,7 +70,7 @@ function keyDownHandler(e) {
         rightPressed = true;
     }
     else if(e.key == "left" || e.key == "ArrowLeft") {
-        leftPressed = false;
+        leftPressed = true;
     }
     
 }
