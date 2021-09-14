@@ -50,14 +50,26 @@ function draw() {
     if (y > canvas.height - ballRadius || y + dy< ballRadius) {
         dy = -dy;
     }
+
+    //paddle controls
+    if(rightPressed) {
+        paddleX += 7;
+    }
+    else if(leftPressed) {
+        paddleX -= 7;
+    }
+
+    drawPaddle();
 }
 
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
     }
-    else if(e.key == "left" || )
-    //20
+    else if(e.key == "left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+    
 }
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
