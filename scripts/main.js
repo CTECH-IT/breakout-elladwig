@@ -18,7 +18,7 @@ let leftPressed = false;
 
 function drawBall() {
    ctx.beginPath();
-    ctx.arc(x, y, ballRadius, 5, Math.PI*2);
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath(); 
@@ -92,4 +92,4 @@ function keyUpHandler(e) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-setInterval(draw, 10);
+setInterval(draw, 15);
