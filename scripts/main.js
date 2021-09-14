@@ -23,7 +23,9 @@ function drawBall() {
     ctx.fill();
     ctx.closePath(); 
 
-    function drawPaddle() {
+}
+
+function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
     ctx.fillStyle = "#0095DD";
@@ -32,7 +34,7 @@ function drawBall() {
 
 }
 
-}
+
 
 function draw() {
     // clear the canvas
