@@ -34,8 +34,6 @@ function drawPaddle() {
 
 }
 
-
-
 function draw() {
     // clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -46,8 +44,8 @@ function draw() {
     // chnage the x and y values for the ball
     x += dx;
     y += dy;
-
-    if (x > canvas.width - ballRadius || x + dx < ballRadius) {
+    //check to see if we've gone off the edge of the board 
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
     if (y > canvas.height - ballRadius || y + dy< ballRadius) {
@@ -92,4 +90,4 @@ function keyUpHandler(e) {
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-setInterval(draw, 15);
+let interval = setInterval(draw, 15);
