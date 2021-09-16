@@ -24,7 +24,7 @@ let brickPadding = 10
 let brickOffsetTop =30
 let brickOffsetLeft = 30
 
-// set up a 2-dimensional array for the bricks 
+// set up a 2-dimensional array for the bricks
 let bricks = [];
 for (let c=0; c < brickColumnCount; c++) {
     bricks[c] = [];
@@ -52,7 +52,7 @@ function drawPaddle() {
 }
 
 function drawBricks() {
-    for(let c=0; c<bricksColumnCount; c++) {
+    for(let c=0; c<brickColumnCount; c++) {
         for(let r=0; r<brickRowCount; r++) {
             let brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
             let brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
