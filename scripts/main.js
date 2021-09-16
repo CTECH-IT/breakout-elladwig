@@ -16,6 +16,23 @@ let paddleX = (canvas.width-paddleWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
 
+let brickRowCount = 3;
+let brickcolumnCount = 5;
+let brickWidth = 75;
+let brickHeight = 20;
+let brickPadding = 10
+let brickOffsetTop =30
+let brickOffsetLeft = 30
+
+// set up a 2-dimensional array for the bricks 
+let bricks = [];
+for (let c=0; c < brickcolumnCount; c++) {
+    bricks[c] = [];
+    for(let r=0; r < brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0 };
+    }
+}
+
 function drawBall() {
    ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
@@ -34,9 +51,28 @@ function drawPaddle() {
 
 }
 
+function drawBricks() {
+    for(let c=0; c<bricksColumnCount; c++) {
+        for(let r=0; r<brickRowCount; r++) {
+            let brickX = (c*(brickWidth+brickPadding))+brickOffsetLeft;
+            let brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
+            bricks[c][r].x = brickX;
+            bricks[c][r].y = brickY;
+            ctx.beginPath();
+            ctx.rect(brickX, brickY, brickWidth, brickHeight);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+}
+
 function draw() {
     // clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // draw the bricks 
+    drawBricks();
     
     // drawing the ball 
     drawBall();
@@ -51,9 +87,13 @@ function draw() {
     if (y + dy < ballRadius) { // ceiling check 
         dy = -dy;
     } else if (y + dy > canvas.height-ballRadius) { // floor check 
+        if (x > paddleX && x < paddleX + paddleWidth) { //paddle check 
+            dy = -dy;
+        } else { // it hit the floor
         alert("GAME OVER");
         document.location.reload();
         clearInterval(interval); // Needed for browser to end game 
+        }
     }
 
     //paddle controls
