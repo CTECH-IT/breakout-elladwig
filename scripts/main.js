@@ -26,7 +26,7 @@ let brickOffsetLeft = 30
 
 // set up a 2-dimensional array for the bricks 
 let bricks = [];
-for (let c=0; c < brickcolumnCount; c++) {
+for (let c=0; c < brickColumnCount; c++) {
     bricks[c] = [];
     for(let r=0; r < brickRowCount; r++) {
         bricks[c][r] = { x: 0, y: 0 };
