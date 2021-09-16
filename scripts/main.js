@@ -1,6 +1,6 @@
 let canvas = document.getElementById("myCanvas")
 let ctx = canvas.getContext("2d")
-
+//hi
 let x = canvas.width/2;
 let y = canvas.height-30;
 
