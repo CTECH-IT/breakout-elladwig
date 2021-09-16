@@ -48,8 +48,12 @@ function draw() {
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
-    if (y > canvas.height - ballRadius || y + dy< ballRadius) {
+    if (y + dy < ballRadius) { // ceiling check 
         dy = -dy;
+    } else if (y + dy > canvas.height-ballRadius) { // floor check 
+        alert("GAME OVER");
+        document.location.reload();
+        clearInterval(interval); // Needed for browser to end game 
     }
 
     //paddle controls
