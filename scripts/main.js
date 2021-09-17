@@ -113,6 +113,10 @@ function draw() {
     }
 
     drawPaddle();
+
+    //check whether the ball is touching any bricks
+    collisionDetection();
+    
 }
 
 function keyDownHandler(e) {
@@ -129,8 +133,11 @@ function collisionDetection() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
             let b = bricks[c][r];
-            if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
-
+            if (b.show == true) {
+                if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                    dy = -dy;
+                    b.show = false;
+                }
             }
         }
     }
