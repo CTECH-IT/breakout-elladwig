@@ -121,6 +121,8 @@ function draw() {
 
     drawScore();
 
+    drawLives();
+
 }
 
 function keyDownHandler(e) {
@@ -157,6 +159,12 @@ function drawScore() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "#d1de00";
     ctx.fillText("Score: " + score, 8, 20);
+}
+
+function drawLives() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#d13800";
+    ctx.fillText("lives: 1", 20, 40);   
 }
 
 function keyUpHandler(e) {
